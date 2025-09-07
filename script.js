@@ -275,7 +275,7 @@
             }
 
             const currentQuestion = questions[currentQuestionIndex];
-            document.getElementById('question').innerText = `Question ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+            document.getElementById('question').innerText = `Question ${currentQuestionIndex + 1}/${questions.length}: ${currentQuestion.question}`;
 
             const optionsDiv = document.getElementById('options');
             optionsDiv.innerHTML = '';
@@ -474,3 +474,4 @@
             document.getElementById('result').style.display = 'none';
             document.getElementById('intro').style.display = 'block';
         }
+
