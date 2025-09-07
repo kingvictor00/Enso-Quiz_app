@@ -4,21 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enso Quiz</title>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
   <div id="logo-background"></div>
 
-  <!-- Intro Section -->
   <div id="intro">
     <h1>Hey Shortcat!</h1>
     <h1>Do you think you are a true Enso community member?</h1>
@@ -27,7 +20,6 @@
     <button onclick="startQuiz()">Start Quiz</button>
   </div>
 
-  <!-- Quiz Section -->
   <div id="quiz" style="display: none;">
     <div id="question-counter"></div>
     <h2 id="question"></h2>
@@ -37,7 +29,6 @@
     <button id="quit-button" onclick="quitQuiz()">Quit</button>
   </div>
 
-  <!-- Result Section -->
   <div id="result" style="display: none;">
     <div id="score-card">
       <img id="score-card-icon" src="icon.png" alt="Enso Icon">
@@ -56,9 +47,6 @@
     </div>
   </div>
 
-  <!-- External JS -->
   <script src="script.js"></script>
 </body>
-
 </html>
-
