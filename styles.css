@@ -36,7 +36,9 @@ h1, h2 {
     font-size: 2.2rem;
 }
 #score h2 {
-    font-size: 1.3rem; /* Further reduced for smaller score card */
+    font-size: 1.2rem; /* Reduced to prevent text clipping */
+    word-wrap: break-word; /* Wrap long text */
+    overflow-wrap: break-word;
 }
 input[type="text"] {
     padding: 12px;
@@ -124,23 +126,23 @@ button:disabled {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px; /* Fixed width for square aspect ratio */
-    height: 300px; /* Fixed height for square aspect ratio */
+    width: 320px; /* Fixed width for square aspect ratio */
+    height: 320px; /* Fixed height for square aspect ratio */
     margin-bottom: 10px;
-    padding: 20px; /* Added padding for internal spacing */
+    padding: 25px; /* Added padding for internal spacing */
     box-sizing: border-box;
 }
 #score-card-icon {
     max-width: 25px; /* Further reduced for smaller score card */
     height: auto;
-    margin: 0 auto 8px auto;
+    margin: 0 auto 5px auto;
     display: block;
 }
 #result-image {
-    max-width: 120px; /* Further reduced for smaller score card */
-    max-height: 120px;
+    max-width: 150px; /* Further reduced for smaller score card */
+    max-height: 150px;
     height: auto;
-    margin: 8px auto; /* Adjusted margin for tighter layout */
+    margin: 5px auto; /* Adjusted margin for tighter layout */
     display: block;
     width: 100%; /* Ensure image fits container */
     box-sizing: border-box; /* Prevent overflow */
@@ -149,7 +151,7 @@ button:disabled {
 }
 #high-score-emoji {
     font-size: 1rem; /* Further reduced for smaller score card */
-    margin: 8px;
+    margin: 5px;
 }
 #results-detail {
     background-color: #1E2235;
@@ -187,15 +189,16 @@ button:disabled {
 }
 @media screen and (max-width: 600px) {
     #result-image {
-        max-width: 100px; /* Smaller image for mobile devices */
-        max-height: 100px;
-        margin: 6px auto; /* Tighter margin for mobile */
+        max-width: 120px; /* Smaller image for mobile devices */
+        max-height: 120px;
+        margin: 5px auto; /* Tighter margin for mobile */
     }
     #score-card {
-        width: 250px
-        height: 250px
-        padding: 15px; /* Add padding to prevent edge clipping on mobile */
+        width: 270px
+        height: 270px
+        padding: 20px; /* Add padding to prevent edge clipping on mobile */
     }
 }
+
 
 
