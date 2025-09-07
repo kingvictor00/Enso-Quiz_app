@@ -1,241 +1,52 @@
-* {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enso Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <div id="logo-background"></div>
 
-body {
-    font-family: 'Inter', sans-serif;
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: center;
-    background-color: #121629;
-    color: #FFFFFF;
-    position: relative;
-    min-height: 100vh;
-}
-#logo-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: url('enso.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3;
-    z-index: -1;
-}
-h1, h2 {
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 2.2rem;
-}
-#score h2 {
-    font-size: 0.95rem;
-    white-space: nowrap; /* Force single line */
-    width: 100%;
-    display: inline-block; /* Control width and prevent wrapping */
-    text-align: center; /* Center for balance */
-    max-width: 300px; /* Limit to fit within score-card */
-    overflow: hidden; /* Hide overflow */
-}
-#question-counter {
-    color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-input[type="text"] {
-    padding: 12px;
-    margin: 12px;
-    width: 80%;
-    background-color: #1E2235;
-    color: #FFFFFF;
-    border: 1px solid #8B5CF6;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    border-radius: 10px;
-}
-button {
-    padding: 10px 20px;
-    background-color: #00FF85;
-    color: #121629;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-}
-button:hover {
-    background-color: #8B5CF6;
-    color: #FFFFFF;
-}
-button:disabled {
-    background-color: #666;
-    cursor: not-allowed;
-}
-.result-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px auto;
-    max-width: 400px;
-}
-.result-buttons button {
-    flex: 1 1 40%;
-    max-width: 160px;
-    border-radius: 10px;
-}
-#options {
-    text-align: left;
-    margin: 30px auto;
-    max-width: 600px;
-    font-size: 1.2rem;
-}
-#options label {
-    color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
-    border-radius: 5px;
-}
-#options label.selected {
-    background-color: #00FF85;
-    color: #121629;
-}
-#timer {
-    font-weight: 600;
-    color: #FF5555;
-    margin: 15px;
-    font-size: 1.2rem;
-}
-#quit-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #FF5555;
-    color: #FFFFFF;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-}
-#quit-button:hover {
-    background-color: #B00020;
-}
-#next-button {
-    display: none;
-}
-#quiz {
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 10px;
-    margin: 20px auto;
-}
-#result {
-    background-color: #1E2235;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#score-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 320px;
-    height: auto;
-    margin: 0 auto 20px auto;
-    padding: 25px;
-    box-sizing: border-box;
-}
-#score-card-icon {
-    max-width: 25px;
-    height: auto;
-    margin: 0 auto 5px auto;
-    display: block;
-}
-#result-image {
-    max-width: 150px;
-    max-height: 150px;
-    height: auto;
-    margin: 5px auto;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #8B5CF6;
-    border-radius: 10px;
-}
-#high-score-emoji {
-    font-size: 1rem;
-    margin: 5px auto;
-}
-#results-detail {
-    background-color: #1E2235;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: left;
-    display: none;
-    position: relative;
-}
-#results-detail .question {
-    margin-bottom: 20px;
-}
-#results-detail .correct {
-    color: #00FF85;
-}
-#results-detail .incorrect {
-    color: #FF5555;
-}
-#close-results {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #FF5555;
-    color: #FFFFFF;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-}
-#close-results:hover {
-    background-color: #B00020;
-}
-@media screen and (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
-    #result {
-        padding: 20px;
-    }
-    #score-card {
-        width: 270px;
-        height: auto;
-        padding: 15px;
-    }
-    #result-image {
-        max-width: 120px;
-        max-height: 120px;
-    }
-    .result-buttons {
-        gap: 8px;
-        max-width: 300px;
-    }
-    .result-buttons button {
-        flex: 1 1 40%;
-        max-width: 120px;
-        border-radius: 10px;
-    }
-}
+  <div id="intro">
+    <h1>Hey Shortcat!</h1>
+    <h1>Do you think you are a true Enso community member?</h1>
+    <h1>Test your Knowledge!</h1>
+    <label>Enter your name: <input type="text" id="nameInput"></label><br>
+    <button onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <div id="quiz" style="display: none;">
+    <div id="question-counter"></div>
+    <h2 id="question"></h2>
+    <div id="options"></div>
+    <div id="timer">Time left: 10s</div>
+    <button id="next-button" onclick="nextQuestion()">Next</button>
+    <button id="quit-button" onclick="quitQuiz()">Quit</button>
+  </div>
+
+  <div id="result" style="display: none;">
+    <div id="score-card">
+      <img id="score-card-icon" src="icon.png" alt="Enso Icon">
+      <h2 id="score"></h2>
+      <img id="result-image" src="" alt="Result Image">
+      <div id="high-score-emoji" style="display: none;">🎉🚀🔥</div>
+    </div>
+    <div class="result-buttons">
+      <button onclick="shareOnX()">Share on X</button>
+      <button onclick="downloadScoreImage()">Download Score Image</button>
+      <button onclick="viewResults()">View Results</button>
+      <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+    <div id="results-detail">
+      <button id="close-results" onclick="closeResults()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
