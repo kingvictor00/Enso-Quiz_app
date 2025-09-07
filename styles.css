@@ -1,5 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
+    width: 90%;
     max-width: 800px;
     margin: 0 auto;
     padding: 30px;
@@ -8,14 +13,6 @@ body {
     color: #FFFFFF;
     position: relative;
     min-height: 100vh;
-}
-#question-counter {
-    color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.8rem; /* Slightly smaller than question text */
-    text-align: center;
-    margin-bottom: 10px; /* Space between counter and question */
 }
 #logo-background {
     position: fixed;
@@ -36,9 +33,21 @@ h1, h2 {
     font-size: 2.2rem;
 }
 #score h2 {
-    font-size: 1.2rem; /* Reduced to prevent text clipping */
-    word-wrap: break-word; /* Wrap long text */
-    overflow-wrap: break-word;
+    font-size: 0.95rem;
+    white-space: nowrap; /* Force single line */
+    width: 100%;
+    display: inline-block; /* Control width and prevent wrapping */
+    text-align: center; /* Center for balance */
+    max-width: 300px; /* Limit to fit within score-card */
+    overflow: hidden; /* Hide overflow */
+}
+#question-counter {
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
 }
 input[type="text"] {
     padding: 12px;
@@ -58,7 +67,6 @@ button {
     border: none;
     cursor: pointer;
     font-weight: 600;
-    margin: 12px;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
@@ -72,10 +80,16 @@ button:disabled {
 }
 .result-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Spacing between buttons */
-    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px auto;
+    max-width: 400px;
+}
+.result-buttons button {
+    flex: 1 1 40%;
+    max-width: 160px;
+    border-radius: 10px;
 }
 #options {
     text-align: left;
@@ -107,6 +121,8 @@ button:disabled {
     right: 20px;
     background-color: #FF5555;
     color: #FFFFFF;
+    padding: 12px 24px;
+    font-size: 1.1rem;
 }
 #quit-button:hover {
     background-color: #B00020;
@@ -115,10 +131,10 @@ button:disabled {
     display: none;
 }
 #quiz {
-    background-color: transparent; /* Removed card background to blend with page */
-    border-radius: 0; /* Removed card border radius */
-    box-shadow: none; /* Removed card shadow */
-    padding: 10px; /* Reduced padding for minimal spacing */
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px;
     margin: 20px auto;
 }
 #result {
@@ -127,38 +143,41 @@ button:disabled {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     padding: 30px;
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #score-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 320px; /* Fixed width for square aspect ratio */
-    height: 320px; /* Fixed height for square aspect ratio */
-    margin-bottom: 10px;
-    padding: 25px; /* Added padding for internal spacing */
+    justify-content: flex-start;
+    width: 320px;
+    height: auto;
+    margin: 0 auto 20px auto;
+    padding: 25px;
     box-sizing: border-box;
 }
 #score-card-icon {
-    max-width: 25px; /* Further reduced for smaller score card */
+    max-width: 25px;
     height: auto;
     margin: 0 auto 5px auto;
     display: block;
 }
 #result-image {
-    max-width: 150px; /* Further reduced for smaller score card */
+    max-width: 150px;
     max-height: 150px;
     height: auto;
-    margin: 5px auto; /* Adjusted margin for tighter layout */
+    margin: 5px auto;
     display: block;
-    width: 100%; /* Ensure image fits container */
-    box-sizing: border-box; /* Prevent overflow */
+    width: 100%;
+    box-sizing: border-box;
     border: 2px solid #8B5CF6;
     border-radius: 10px;
 }
 #high-score-emoji {
-    font-size: 1rem; /* Further reduced for smaller score card */
-    margin: 5px;
+    font-size: 1rem;
+    margin: 5px auto;
 }
 #results-detail {
     background-color: #1E2235;
@@ -195,18 +214,28 @@ button:disabled {
     background-color: #B00020;
 }
 @media screen and (max-width: 600px) {
-    #result-image {
-        max-width: 120px; /* Smaller image for mobile devices */
-        max-height: 120px;
-        margin: 5px auto; /* Tighter margin for mobile */
+    body {
+        padding: 15px;
+    }
+    #result {
+        padding: 20px;
     }
     #score-card {
-        width: 270px
-        height: 270px
-        padding: 20px; /* Add padding to prevent edge clipping on mobile */
+        width: 270px;
+        height: auto;
+        padding: 15px;
+    }
+    #result-image {
+        max-width: 120px;
+        max-height: 120px;
+    }
+    .result-buttons {
+        gap: 8px;
+        max-width: 300px;
+    }
+    .result-buttons button {
+        flex: 1 1 40%;
+        max-width: 120px;
+        border-radius: 10px;
     }
 }
-
-
-
-
