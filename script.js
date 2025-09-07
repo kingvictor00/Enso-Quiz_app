@@ -58,7 +58,7 @@
             },
             {
                 question: "How many cross-chain transactions has Enso's Speedrun campaign driven?",
-                options: ["500K", "900K", "1M"],
+                options: ["500K", "900K", "2M", "300K"],
                 correct: 1
             },
             {
@@ -103,7 +103,7 @@
             },
             {
                 question: "Who is the Team & Community manager of Enso Build?",
-                options: ["Niko Vida", "John Smith", "Alex Johnson"],
+                options: ["Niko", "John Smith", "Alex Johnson"],
                 correct: 0
             },
             {
@@ -144,9 +144,8 @@
             {
                 question: "What year was Enso founded?",
                 options: ["2020", "2021", "2022"],
-                correct: 1 // Placeholder; update if known
+                correct: 1
             },
-            // Additional questions to reach 100
             {
                 question: "Which chain did Enso support for its first cross-chain tx?",
                 options: ["Arbitrum", "Optimism", "Avalanche"],
@@ -173,34 +172,13 @@
                 correct: 0
             },
             {
-                question: "Enso's founder is known for expertise in what?",
-                options: ["Blockchain", "AI", "Web2"],
-                correct: 0
-            },
-            {
                 question: "Which Enso campaign promotes developer adoption?",
                 options: ["Speedrun", "BuildFast", "DeFi Dash"],
                 correct: 1
             },
             {
-                question: "Enso's community events are hosted where?",
-                options: ["Globally", "Only in Asia", "Only in USA"],
-                correct: 0
-            },
-            {
                 question: "What is Enso's primary programming language for SDK?",
                 options: ["TypeScript", "Rust", "Go"],
-                correct: 0
-            },
-            {
-                question: "Enso's Speedrun campaign focuses on what?",
-                options: ["NFTs", "Cross-chain txs", "Staking"],
-                correct: 1
-            },
-            // Continue adding unique questions
-            {
-                question: "Which chain is Enso most active on?",
-                options: ["Ethereum", "Polygon", "Solana"],
                 correct: 0
             },
             {
@@ -209,23 +187,8 @@
                 correct: 0
             },
             {
-                question: "Enso's API is optimized for what?",
-                options: ["Speed", "Security", "Both"],
-                correct: 2
-            },
-            {
-                question: "Which Enso feature simplifies wallet integration?",
-                options: ["Intent Engine", "Shortcuts Widget", "API"],
-                correct: 1
-            },
-            {
-                question: "Enso's community manager hosts AMAs where?",
-                options: ["Twitter", "Discord", "Reddit"],
-                correct: 1
-            },
-            {
                 question: "Enso's Discord has how many members (approx)?",
-                options: ["1K", "5K", "160K"],
+                options: ["100K", "50K", "160K" , "255K"],
                 correct: 2
             },
             {
@@ -246,11 +209,6 @@
             {
                 question: "Which Enso feature enhances UX?",
                 options: ["Intent Engine", "API", "Widget"],
-                correct: 2
-            },
-            {
-                question: "Enso's events focus on what?",
-                options: ["Education", "Networking", "Both"],
                 correct: 2
             },
             {
@@ -293,7 +251,7 @@
             }
             // Shuffle the pool and take first 20
             const shuffledPool = shuffleArray([...questionsPool]);
-            questions = shuffledPool.slice(0, 20);
+            questions = shuffledPool.slice(0, 10);
             document.getElementById('intro').style.display = 'none';
             document.getElementById('quiz').style.display = 'block';
             currentQuestionIndex = 0;
