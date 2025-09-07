@@ -58,7 +58,7 @@
             },
             {
                 question: "How many cross-chain transactions has Enso's Speedrun campaign driven?",
-                options: ["500K", "900K", "2M", "300K"],
+                options: ["500K", "900K", "2M"],
                 correct: 1
             },
             {
@@ -108,7 +108,7 @@
             },
             {
                 question: "What is the highest community role on the Enso Discord server?",
-                options: ["Tip king", "Admin", "Clipper" , "Pilot"],
+                options: ["Tip king", "Clipper", "Pilot"],
                 correct: 3
             },
             {
@@ -188,7 +188,7 @@
             },
             {
                 question: "Enso's Discord has how many members (approx)?",
-                options: ["100K", "50K", "160K" , "255K"],
+                options: ["100K", "160K" , "255K"],
                 correct: 2
             },
             {
@@ -223,7 +223,7 @@
             },
             {
                 question: "Enso's Discord role for moderators is?",
-                options: ["Enso mods" , "Modifier", "Admin", "Shortcat Mod"],
+                options: ["Enso mods" , "Modifier", "Shortcat Mod"],
                 correct: 0
             },
             {
@@ -275,8 +275,8 @@
             }
 
             const currentQuestion = questions[currentQuestionIndex];
-            document.getElementById('question').innerText = `Question ${currentQuestionIndex + 1}/${questions.length}: ${currentQuestion.question}`;
-
+            document.getElementById('question-counter').innerText = `Question ${currentQuestionIndex + 1}/${questions.length}`;
+            document.getElementById('question').innerText = currentQuestion.question;
             const optionsDiv = document.getElementById('options');
             optionsDiv.innerHTML = '';
 
@@ -357,6 +357,7 @@
             timerInterval = null;
             document.getElementById('quiz').style.display = 'none';
             document.getElementById('result').style.display = 'block';
+            document.getElementById('question-counter').innerText = ''; // Clear counter on quiz end
             const totalQuestions = questions.length;
             const percentage = (score / totalQuestions) * 100;
             let message, imageSrc;
@@ -462,6 +463,7 @@
             document.getElementById('nameInput').value = '';
             document.getElementById('quiz').style.display = 'none';
             document.getElementById('intro').style.display = 'block';
+            document.getElementById('question-counter').innerText = '';
         }
 
         function restartQuiz() {
@@ -473,5 +475,7 @@
             document.getElementById('nameInput').value = '';
             document.getElementById('result').style.display = 'none';
             document.getElementById('intro').style.display = 'block';
+            document.getElementById('question-counter').innerText = '';
         }
+
 
