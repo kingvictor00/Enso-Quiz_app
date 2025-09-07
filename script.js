@@ -444,6 +444,9 @@
             html2canvas(scoreCard, {
                 backgroundColor: '#1E2235',
                 useCORS: true,
+                scale: 2,
+                width: 300,
+                height: 300,
                 logging: true
             }).then(canvas => {
                 const link = document.createElement('a');
@@ -477,5 +480,6 @@
             document.getElementById('intro').style.display = 'block';
             document.getElementById('question-counter').innerText = '';
         }
+
 
 
