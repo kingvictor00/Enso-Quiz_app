@@ -187,7 +187,7 @@ let questionsPool = [
     {
         question: "Enso's Discord has how many members (approx)?",
         options: ["100K", "160K", "255K"],
-        correct: 2
+        correct: 1
     },
     {
         question: "Enso's API supports which blockchain type?",
@@ -478,3 +478,4 @@ function restartQuiz() {
     document.getElementById('intro').style.display = 'block';
     document.getElementById('question-counter').innerText = '';
 }
+
